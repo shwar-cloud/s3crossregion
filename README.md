@@ -4,15 +4,15 @@ Storage Layer :
  (1) Source bucket in us-east-1  
  (2) Destination bucket in us-west-2
 
-Both bucket enabled with Versioning,KMS encryption
+Both bucket enabled with Versioning,KMS encryption. 
     Versioning → protects from accidental delete
     KMS → protects data at rest
     Bucket policy → blocks unencrypted uploads
 
-For Encryption - Separate KMS key per region 
-Lifecycle - This reduces storage cost automatically based on object age
-Cross-Region Replication :
-Replicates from us-east-1 to us-west-2, Uses IAM Role created by S3, Replicates Encrypted objects
+For Encryption - Separate KMS key per region, 
+Lifecycle - This reduces storage cost automatically based on object age, 
+      Cross-Region Replication :
+Replicates from us-east-1 to us-west-2, Uses IAM Role created by S3, Replicates Encrypted objects.
 Monitoring & Alerting – Amazon CloudWatch
 
 # Testing  :
