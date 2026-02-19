@@ -21,7 +21,7 @@ provider "aws" {
   region = "us-west-2"
 }
 
-## KMS Keys
+# KMS Keys
 data "aws_kms_key" "source_kms" {
   provider = aws.virginia
   key_id   = "2cc6fc85-4f8a-40e6-955d-afee4030f903"
@@ -32,7 +32,7 @@ data "aws_kms_key" "destination_kms" {
   key_id   = "679a15c9-e045-4a7a-959d-084f7646a244"
 }
 
-## SNS Topic for Alerts
+# SNS Topic for Alerts
 resource "aws_sns_topic" "replication_alerts" {
   provider = aws.virginia
   name     = "sclr-replication-alerts"
@@ -73,7 +73,7 @@ resource "aws_sns_topic_subscription" "replication_email" {
   endpoint  = "changedev25@gmail.com"
 }
 
-## IAM Role for Replication
+# IAM Role for Replication
 resource "aws_iam_role" "replication_role" {
   name = "sclr-replication-role"
 
@@ -134,7 +134,7 @@ resource "aws_iam_role_policy" "replication_policy" {
   })
 }
 
-## Source Bucket (Virginia)
+# Source Bucket (Virginia)
 resource "aws_s3_bucket" "source_bucket" {
   provider            = aws.virginia
   bucket              = "source-sclrbucket1"
@@ -234,7 +234,7 @@ resource "aws_s3_bucket_lifecycle_configuration" "source_lifecycle" {
   }
 }
 
-## Destination Bucket (Oregon)
+# Destination Bucket (Oregon)
 resource "aws_s3_bucket" "destination_bucket" {
   provider            = aws.oregon
   bucket              = "destination-sclrbucket2"
@@ -329,7 +329,7 @@ resource "aws_s3_bucket_replication_configuration" "source_to_destination_replic
   }
 }
 
-## Replication Failure Notification
+# Replication Failure Notification
 resource "aws_s3_bucket_notification" "replication_failure" {
   provider = aws.virginia
   bucket   = aws_s3_bucket.source_bucket.id
@@ -345,7 +345,7 @@ resource "aws_s3_bucket_notification" "replication_failure" {
   }
 }
 
-## CloudWatch Alarm
+# CloudWatch Alarm
 resource "aws_cloudwatch_metric_alarm" "replication_lag" {
   provider            = aws.virginia
   alarm_name          = "sclr-replication-lag"
