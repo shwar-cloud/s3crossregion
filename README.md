@@ -34,3 +34,9 @@ upload: .\sourcefile2.txt to s3://source-sclrbucket1/sourcefile2.txt
 aws cloudwatch describe-alarms --alarm-names "sclr-replication-lag"
 
 <img width="940" height="341" alt="image" src="https://github.com/user-attachments/assets/82531224-631f-4b10-aea5-7ba1488c591c" />
+
+<img width="940" height="104" alt="image" src="https://github.com/user-attachments/assets/a1982e0c-8aa2-412c-8bb3-a65379ef1870" />
+<img width="940" height="154" alt="image" src="https://github.com/user-attachments/assets/7a2ae38a-4f02-4e1d-af26-539868136420" />
+<img width="940" height="311" alt="image" src="https://github.com/user-attachments/assets/516dfd1c-1b4f-4cbd-a538-166dfb973a59" />
+<img width="940" height="414" alt="image" src="https://github.com/user-attachments/assets/948dd0fd-fad0-4229-9882-5c3f99daf6f4" />
+
