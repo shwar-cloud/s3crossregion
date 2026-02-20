@@ -33,3 +33,4 @@ upload: .\sourcefile2.txt to s3://source-sclrbucket1/sourcefile2.txt
 # To check the status and configuration of the CloudWatch alarm.
 aws cloudwatch describe-alarms --alarm-names "sclr-replication-lag"
 
+<img width="940" height="341" alt="image" src="https://github.com/user-attachments/assets/82531224-631f-4b10-aea5-7ba1488c591c" />
