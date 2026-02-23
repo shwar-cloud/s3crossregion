@@ -48,17 +48,25 @@ resource "aws_sns_topic_policy" "replication_alerts_policy" {
       {
         Sid       = "AllowS3ReplicationPublish"
         Effect    = "Allow"
-        Principal = { Service = "s3.amazonaws.com" }
+        Principal =
+          { 
+            Service = "s3.amazonaws.com"  
+          }
         Action    = "sns:Publish"
         Resource  = aws_sns_topic.replication_alerts.arn
         Condition = {
-          ArnLike = { "aws:SourceArn" = "arn:aws:s3:::source-sclrbucket1" }
+          ArnLike = { 
+           "aws:SourceArn" = "arn:aws:s3:::source-sclrbucket1" 
+        }
         }
       },
       {
         Sid       = "AllowCloudWatchPublish"
         Effect    = "Allow"
-        Principal = { Service = "cloudwatch.amazonaws.com" }
+        Principal = 
+           { 
+               Service = "cloudwatch.amazonaws.com" 
+           }
         Action    = "sns:Publish"
         Resource  = aws_sns_topic.replication_alerts.arn
       }
@@ -81,7 +89,9 @@ resource "aws_iam_role" "replication_role" {
     Version = "2012-10-17",
     Statement = [{
       Effect    = "Allow",
-      Principal = { Service = "s3.amazonaws.com" },
+      Principal = { 
+             Service = "s3.amazonaws.com" 
+         },
       Action    = "sts:AssumeRole"
     }]
   })
